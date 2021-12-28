@@ -1,0 +1,81 @@
+# 모든 터미널 종료 권장
+
+cd ~/catkin_ws/src/
+
+catkin_create_pkg test_ros_service std_msgs rospy
+
+-------------------------------
+cd ~/catkin_ws/src/test_ros_service
+
+mkdir srv
+
+cd srv
+
+gedit WordCount.srv
+
+cd ~/catkin_ws
+
+catkin_make
+
+-----------------------
+(다른 터미널)
+
+roscore 
+-------------------------
+
+cd ~/catkin_ws/src/test_ros_service/src
+
+gedit CMakeLists.txt
+
+gedit package.xml
+
+# make file "service_server.py" and type code and test. 
+
+-----------------------
+(다른 터미널)
+cd ~/catkin_ws/src/test_ros_service/src
+
+gedit service_server.py 
+
+-> git 허브 파일을 복사해서 작성하세요
+
+# 실행
+rosrun test_ros_service service_server.py
+
+---------------------------------
+
+rosservice list
+
+# make file "test_sub_topic.py" and type code.
+
+ (다른 터미널)
+
+cd ~/catkin_ws/src/test_ros_service/src
+
+gedit service_client.py 
+
+-> github 파일을 복사해서 작성하세요
+
+# 실행
+
+rosrun test_ros_service service_client.py
+
+
+-------------------------------------------
+(중지하고 권한 설정)
+
+cd ~/catkin_ws/src/test_ros_service/src
+
+chmod 777 *
+
+(모두 중지하고 터미널을 모두 끄고 다시 다른 창)
+
+cd ~/catkin_ws/src/test_ros_service/
+
+------------------
+
+rosrun test_ros_service service_server.py
+
+rosrun test_ros_service service_client.py
+
+import 에러시   catkin_make 실시하면 ㄷ해결됨.
